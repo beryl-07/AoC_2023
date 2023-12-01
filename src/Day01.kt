@@ -7,11 +7,16 @@ fun main() {
         return input.size
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    val input = readInput("Day01_test/input0")
 
-    val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+    var count = 0
+    input.forEach { el ->
+        var str = ""
+        el.forEach {
+            if(it.isDigit())
+                str += it
+        }
+        count += (str[0]+str[(str.length-1)].toString()).toInt()
+    }
+    print(count)
 }

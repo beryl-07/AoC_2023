@@ -7,6 +7,8 @@ fun main() {
     fun part1(input: List<String>): Int {
         return input.size
     }
+    val input = readInput("Day01_test/input0")
+    var count = 0
     /*
      Puzzle 01
       var count = 0
@@ -21,16 +23,13 @@ fun main() {
       print(count)  // 54597
     */
 
-    val input = readInput("Day01_test/input0")
-
-   /* Puzzle 01 . Refactor */
-    var count = 0
-    // input.forEach { el ->
-    //     val str = el.filter { it.isDigit() }
-    //     count += (str[0] + str.last().toString()).toInt()
-    // }
+   /* Puzzle 01 . Refactor
+    input.forEach { el ->
+        val str = el.filter { it.isDigit() }
+        count += (str[0] + str.last().toString()).toInt()
+    }*/
     
-    /* Puzzle 02 */
+    /* Puzzle 02
     val digitMap = mapOf("one" to 1, "two" to 2, "three" to 3, "four" to 4,
             "five" to 5, "six" to 6, "seven" to 7, "eight" to 8, "nine" to 9)
 
@@ -46,6 +45,7 @@ fun main() {
             }
         }
         count += (str[0] + str.last().toString()).toInt()
-    }
+    }*/
+    
     println(count)
 }

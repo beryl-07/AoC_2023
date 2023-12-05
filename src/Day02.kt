@@ -12,12 +12,11 @@ fun main() {
 
         }.let { set ->
 
-            val red = set.sumOf { it["red"] ?: 0 }
-            val green = set.sumOf { it["green"] ?: 0 }
-            val blue = set.sumOf { it["blue"] ?: 0 }
+            val red = set.maxBy { it["red"] ?: 0 }["red"]?:0
+            val green = set.maxBy { it["green"] ?: 0 }["green"]?:0
+            val blue = set.maxBy { it["blue"] ?: 0 }["blue"]?:0
 
-            id to mapOf("red" to red, "green" to green, "blue" to blue)
-
+            id to (red * green * blue)
         }
     }
 
@@ -34,8 +33,11 @@ fun main() {
             true
         }.sumOf { it.substringAfter("Game ").substringBefore(":").toInt() }
     }
+    fun part2(input: List<String>):Int =
+        parse(input).sumOf { it.second }
 
     val input = readInput("Day02_test/input0")
 
     println("Part 1: ${part1(input)}")
+    println("Part 2: ${part2(input)}")
 }
